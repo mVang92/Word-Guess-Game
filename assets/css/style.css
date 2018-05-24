@@ -42,6 +42,6 @@ button {
     cursor: pointer; 
 }
 
-.wordToGuess {
+#wordToGuess {
     font-size: 80px;
 }

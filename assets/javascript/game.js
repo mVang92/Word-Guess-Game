@@ -15,9 +15,9 @@ var wordList = [
 ]
 
 var playerScore =
-    "<p>"+ player + "</p>";
-    document.querySelector("#playerScore").innerHTML = playerScore;
+    document.getElementById("playerScore").innerHTML = player;
+
 
 var cpuScore =
-    "<p>"+ cpu + "</p>"
-    document.querySelector("cpuScore").innerHTML = cpuScore;
+    document.getElementById("playerScore").innerHTML = player;
+

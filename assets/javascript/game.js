@@ -1,6 +1,3 @@
-var player = 0;
-var cpu = 0;
-
 var wordList = [
     "engine cylinder head",
     "camshaft",
@@ -11,13 +8,8 @@ var wordList = [
     "torque converter",
     "catalytic converter",
     "diagnostic trouble code reader",
-    "fan clutch"
+    "fan clutch",
+    "fuel regulator",
+    "ignition coil over plug"
 ]
-
-var playerScore =
-    document.getElementById("playerScore").innerHTML = player;
-
-
-var cpuScore =
-    document.getElementById("playerScore").innerHTML = player;
 

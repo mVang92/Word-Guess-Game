@@ -29,8 +29,6 @@ body {
     display: block;
 }
 
-
-
 .break {
     opacity: 0;
 }
@@ -42,4 +40,8 @@ body {
 
 button {
     cursor: pointer; 
+}
+
+.wordToGuess {
+    font-size: 80px;
 }

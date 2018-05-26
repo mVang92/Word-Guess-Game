@@ -43,5 +43,9 @@ button {
 }
 
 #wordToGuess {
-    font-size: 80px;
+    font-size: 40px;
+}
+
+#letterBank {
+    text-align: center;
 }

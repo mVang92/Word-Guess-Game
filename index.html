@@ -6,8 +6,6 @@
         <!-- Boostrap, for saving my life -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
             integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <!-- Javasript link source -->
-        <script type="text/javascript" src="assets/javascript/game.js"></script>
     </head>
 
     <body>
@@ -34,10 +32,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <button class="btn-danger btn-lg">New Game</button>
+                                    <button class="btn-danger btn-lg" id="newBtn">New Game</button>
                                 </div>
                                 <div class="col-lg-6">
-                                    <button class="btn-danger btn-lg">Reset Game</button>
+                                    <button class="btn-danger btn-lg" id="resetBtn">Reset Game</button>
                                 </div>
                             </div>
                         </div>
@@ -68,25 +66,57 @@
             <div class="letterGuessBox">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h2>Letter Bank</h2>
+                        <h2 id="letterBank">Letter Bank</h2>
                     </div>
                     
                     <div class="col-lg-6">
                         <h2>Guess This Word</h2>
                     </div>
                 </div>
-                <hr>
                 <div class="row">
                     <div class="col-lg-6">
-                        <h2>//Letters</h2>
+                        <button id="aKey" class="btn-info btn-sm ml-5">A</button>
+                        <button id="bKey" class="btn-info btn-sm">B</button>
+                        <button id="cKey" class="btn-info btn-sm">C</button>
+                        <button id="dKey" class="btn-info btn-sm">D</button>
+                        <button id="eKey" class="btn-info btn-sm">E</button>
+                        <button id="fKey" class="btn-info btn-sm">F</button>
+                        <button id="gKey" class="btn-info btn-sm">G</button>
+                        <button id="hKey" class="btn-info btn-sm">H</button>
+                        <button id="iKey" class="btn-info btn-sm">I</button>
+                        <button id="jKey" class="btn-info btn-sm">J</button>
+                        <button id="kKey" class="btn-info btn-sm">K</button>
+                        <button id="lKey" class="btn-info btn-sm">L</button>
+                        <button id="mKey" class="btn-info btn-sm">M</button>
+                        <hr>
                     </div>
-                    
                     <div class="col-lg-6">
-                        <h2 id="wordToGuess"></h2>
+                        <p id="wordToGuess"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div>
+                        <button id="nKey" class="btn-info btn-sm ml-5">N</button>
+                        <button id="oKey" class="btn-info btn-sm">O</button>
+                        <button id="pKey" class="btn-info btn-sm">P</button>
+                        <button id="qKey" class="btn-info btn-sm">Q</button>
+                        <button id="rKey" class="btn-info btn-sm">R</button>
+                        <button id="sKey" class="btn-info btn-sm">S</button>
+                        <button id="tKey" class="btn-info btn-sm">T</button>
+                        <button id="uKey" class="btn-info btn-sm">U</button>
+                        <button id="vKey" class="btn-info btn-sm">V</button>
+                        <button id="wKey" class="btn-info btn-sm">W</button>
+                        <button id="xKey" class="btn-info btn-sm">X</button>
+                        <button id="yKey" class="btn-info btn-sm">Y</button>
+                        <button id="zKey" class="btn-info btn-sm">Z</button>
+                    </div>
                     </div>
                 </div>
             </div>
             <br>
         </div>
+        <!-- Javasript link source -->
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
     </body>
 </html>

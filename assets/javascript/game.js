@@ -10,8 +10,8 @@ var wordList = [
 // // Randomlly pick a word from wordList array
 var randomWord = Math.floor(Math.random() * wordList.length);
 var chosenWord = wordList[randomWord];
-var rightLetter= [];
-var guess = 0;
+var rightLetter = [];
+var guess = [];
 // let wrongWord = [];
 // let underScore = [];
 
@@ -24,22 +24,29 @@ document.getElementById("newBtn").addEventListener("click", function(){
     var makeUnderScore = 0
     word = [];
     for ( var i = 0; i < chosenWord.length; i++ ){
+        // Generates underscores and displays them on the screen
         word.push("_")
         document.getElementById("wordToGuess").innerHTML = word;
     }
-    console.log("hi");
+    // Test
     console.log(chosenWord);
+    
     // Listens to key presses
     document.onkeypress = function(event) {
         event = event || window.event;
         var charCode = event.keyCode || event.which;
         var charStr = String.fromCharCode(charCode);
-        wordList[] = charStr;
+        // Test
         console.log(charStr);
+        guess.push(charStr);
+        console.log(guess);
+            
+        if (guess.length === chosenWord.length && guess === chosenWord) {
+            console.log("Good");
+        }
     };
 
 });
-
 
 // document.addEventListener("keypress", check());
 // function check() {

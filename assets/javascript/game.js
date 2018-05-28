@@ -1,5 +1,4 @@
 // Make an array of words to guess
-
 var wordList = [
     "wrench".split(''), 
     "hammer".split(''), 
@@ -15,17 +14,12 @@ var guess = [];
 // let wrongWord = [];
 // let underScore = [];
 
-// DOM manipulation
-// let docUnderScore = document.getElementsById("#wordToGuess");
-// let docRightGuess = document.getElementsByClassName("#wordToGuess");
-// let docWrongGuess = document.getElementsByClassName("#wordToGuess");
-
 document.getElementById("newBtn").addEventListener("click", function(){
     var makeUnderScore = 0
     word = [];
     for ( var i = 0; i < chosenWord.length; i++ ){
         // Generates underscores and displays them on the screen
-        word.push("_")
+        word.push(" _ ")
         document.getElementById("wordToGuess").innerHTML = word;
     }
     // Test

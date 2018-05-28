@@ -12,23 +12,20 @@ var randomWord = Math.floor(Math.random() * wordList.length);
 var chosenWord = wordList[randomWord];
 var rightLetter = [];
 var guess = [];
-var word = [];
-var rightLetter = [];
-var wrongLetter = [];
-var underScore = [];
+// let wrongWord = [];
+// let underScore = [];
 
 // DOM manipulation
 // let docUnderScore = document.getElementsById("#wordToGuess");
 // let docRightGuess = document.getElementsByClassName("#wordToGuess");
 // let docWrongGuess = document.getElementsByClassName("#wordToGuess");
 
-// Generate underscores when player presses New Game button
 document.getElementById("newBtn").addEventListener("click", function(){
-    // However many characters the chosen word has, make that many underscores
+    var makeUnderScore = 0
+    word = [];
     for ( var i = 0; i < chosenWord.length; i++ ){
-        // Places underscores into word array
-        word.push("_")
         // Generates underscores and displays them on the screen
+        word.push("_")
         document.getElementById("wordToGuess").innerHTML = word;
     }
     // Test
@@ -42,32 +39,13 @@ document.getElementById("newBtn").addEventListener("click", function(){
         // Test
         console.log(charStr);
         guess.push(charStr);
-        //console.log(guess);
+        console.log(guess);
             
-        if (chosenWord) {
-            if (guess.length == chosenWord.length) {
-                console.log("Good");
-            }
+        if (guess.length === chosenWord.length && guess === chosenWord) {
+            console.log("Good");
         }
-    
+    };
 
-        // Use .indexOf method to compare the chosen word
-        // If user guess is right
-        if (chosenWord.indexOf(charStr) > -1) {
-            // Add to right word array
-            rightLetter.push(charStr);
-            // Replace underscore with the right letter
-            word[chosenWord.indexOf(charStr)] = charStr;
-            // Checks to see if user word matches guesses
-            if (word.join(" ") == chosenWord) {
-                alert("You Win");
-            }
-        } else {
-            // Add to wrong word array
-            wrongLetter.push();
-            console.log(wrongLetter)
-        }
-    }
 });
 
 // document.addEventListener("keypress", check());

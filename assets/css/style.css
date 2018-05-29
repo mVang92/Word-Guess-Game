@@ -46,6 +46,6 @@ button {
     font-size: 40px;
 }
 
-#letterBank {
+#letterBank, #wordToGuessFormat {
     text-align: center;
 }

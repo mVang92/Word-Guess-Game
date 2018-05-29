@@ -1,3 +1,4 @@
+// GLOBAL SCOPE VARIABLES
 // Make an array of words to guess
 var wordList = [
     "wrench".split(''), 
@@ -6,41 +7,102 @@ var wordList = [
     "distributor".split(''), 
 ]
 
-// // Randomlly pick a word from wordList array
+// Randomlly pick a word from wordList array
+var game = 0;
 var randomWord = Math.floor(Math.random() * wordList.length);
 var chosenWord = wordList[randomWord];
-var rightLetter = [];
-var guess = [];
-// let wrongWord = [];
-// let underScore = [];
+var myLength = chosenWord.length;
+var display = [myLength];
+var win = myLength;
+// Splits answer array into separate characters at each index
+// Use toString method to get underscores to generate correctly
+var letters = chosenWord; //.toString().split('');
+var lives = 10;
+// How we display the underscore initially
+var output = "";
+// What ever letter the user guesses
+var userLetter = "";
+// END GLOBAL SCOPE VARIABLES
 
-document.getElementById("newBtn").addEventListener("click", function(){
-    var makeUnderScore = 0
-    word = [];
-    for ( var i = 0; i < chosenWord.length; i++ ){
-        // Generates underscores and displays them on the screen
-        word.push(" _ ")
-        document.getElementById("wordToGuess").innerHTML = word;
+var running = function() {
+    // Test running function
+    // console.log("running function")
+    document.getElementById("lives").innerHTML = lives;
+    for (var i = 0; i < chosenWord.length; i++){
+        display[i] = "_ ";
+        output += display[i];
     }
-    // Test
-    console.log(chosenWord);
-    
+    document.getElementById("wordToGuess").innerHTML = output;
+    output = "";
+    console.log(chosenWord)
+}
+
+var guessing = function(){
+    // Test guessing function
+    // console.log("in guessing function")
+    output = "";
     // Listens to key presses
     document.onkeypress = function(event) {
         event = event || window.event;
         var charCode = event.keyCode || event.which;
-        var charStr = String.fromCharCode(charCode);
+        var userLetter = String.fromCharCode(charCode);
         // Test
-        console.log(charStr);
-        guess.push(charStr);
-        console.log(guess);
-            
-        if (guess.length === chosenWord.length && guess === chosenWord) {
-            console.log("Good");
-        }
-    };
+        // console.log(userLetter);
 
+        for (var n = 0; n < chosenWord.length; n++){
+            alert(letters[n]);
+            if (userLetter.toUpperCase() === letters[n]) {
+                display[n] = userLetter.toUpperCase();
+                win--;
+            }
+            output += display[n] + " ";
+        }
+        document.getElementById("lives").innerHTML = lives;
+        output = "";
+        lives--;
+
+        if (win < 1) {
+            console.log("win")
+        } else if ( lives < 1) {
+            console.log("lose")
+        } else {
+            console.log("you have " + lives + " lives remaining.")
+        }
+    }
+}
+
+document.getElementById("newBtn").addEventListener("click", function(){
+    // console.log("New Game")
+    running();
+    guessing ();
 });
+
+// document.getElementById("newBtn").addEventListener("click", function(){
+//     var makeUnderScore = 0
+//     word = [];
+//     for ( var i = 0; i < chosenWord.length; i++ ){
+//         // Generates underscores and displays them on the screen
+//         word.push(" _ ")
+//         document.getElementById("wordToGuess").innerHTML = word;
+//     }
+    
+//     // Listens to key presses
+//     document.onkeypress = function(event) {
+//         event = event || window.event;
+//         var charCode = event.keyCode || event.which;
+//         var charStr = String.fromCharCode(charCode);
+//         // Test
+//         console.log(charStr);
+//         guess.push(charStr);
+//         console.log(guess);
+            
+//         if (guess.length === chosenWord.length && guess === chosenWord) {
+//             console.log("Good");
+//         }
+//     };
+
+// });
+
 
 // document.addEventListener("keypress", check());
 // function check() {
@@ -86,4 +148,3 @@ document.getElementById("newBtn").addEventListener("click", function(){
 // });
 
 // // docUnderScore[0].innerHTML = makeUnderScore().join(" ");
-

@@ -50,13 +50,17 @@ var guessing = function(){
         // console.log(userLetter);
 
         for (var n = 0; n < chosenWord.length; n++){
-            alert(letters[n]);
-            if (userLetter.toUpperCase() === letters[n]) {
-                display[n] = userLetter.toUpperCase();
+            // console.log(letters[n]);
+            if (userLetter == letters[n]) {
+                
+                display[n] = userLetter;
                 win--;
+                console.log("if now")
             }
-            output += display[n] + " ";
+            output += display[n];
+            
         }
+
         document.getElementById("lives").innerHTML = lives;
         output = "";
         lives--;

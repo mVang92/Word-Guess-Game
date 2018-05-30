@@ -42,7 +42,7 @@ if (chosenWord === "flexplate"){
     "The mechanism by which power is transmitted from an engine to the wheels of a motor vehicle.";
 } else if (chosenWord === "distributor") {
     document.getElementById("hint").innerHTML = 
-    "Although most vehicles have switched to coil-on-plugs, the purpose of this device is to route secondary, or high voltage, current from the ignition coil to the spark plugs in the correct firing order, and for the correct amount of time.";
+    "Although modern vehicles have switched over to coil-on-plugs, the purpose of this device is to route secondary, or high voltage, current from the ignition coil to the spark plugs in the correct firing order, and for the correct amount of time.";
 } else if (chosenWord === "alternator") {
     document.getElementById("hint").innerHTML = 
     "This is an electrical generator that converts mechanical energy to electrical energy. It also recharges the battery and runs all electrical accessories on the vehicle.";
@@ -66,7 +66,7 @@ document.getElementById("wordToGuess").innerHTML = output;
 // Resets underscores
 output = "";
 // Stop cheating...
-console.log(chosenWord);
+// console.log(chosenWord);
 
 // Listens to key presses
 document.onkeypress = function(event) {
@@ -77,12 +77,14 @@ document.onkeypress = function(event) {
     // Test
     // console.log(userLetter);
 
+    // Checks for the wrong guesses
     if (chosenWord.indexOf(userLetter) < 0) {
-        console.log("Bad guess!");
+        // Test
+        // console.log("wrong guess");
+
+        // Decrement lives by 1
         lives--;
-    
-    // If the letter exists in the word, we need to
-    // add it to the good guesses array
+    // Add letters to the rightGuess array when they are correct
     } else {
         for (i = 0; i < chosenWord.length; i++) {
             // Each time the guess letter is found... 
@@ -91,17 +93,17 @@ document.onkeypress = function(event) {
                 rightGuess[i] = userLetter;
                 document.getElementById("wordToGuess").innerHTML = rightGuess;
             }
-            
         }
-        
     }
 
-    // Displays the correct word once all lives are used up
+    // When player wins, notify the player
+    
+
+    // When player loses, display the correct word once all lives are used up
     if (lives < 1){
         lives = 0;
         document.getElementById("showWord").innerHTML = "The correct word is \"" + chosenWord + "\".";
         // window.location.reload();
     }
     document.getElementById("lives").innerHTML = lives;
-    
 }

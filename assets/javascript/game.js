@@ -21,7 +21,7 @@ var win = myLength;
 var letters = chosenWord; //.toString().split('');
 var lives = 10;
 var rightGuess = [];
-var wrongGuess = 0;
+var wrongGuess = [];
 // // How we display the underscore initially
 var output = "";
 // // What ever letter the user guesses
@@ -32,19 +32,26 @@ var userLetter = "";
 document.getElementById("lives").innerHTML = lives;
 // Displays a hint for each word
 if (chosenWord === "flexplate"){
-    document.getElementById("hint").innerHTML = "flexplate hint";
+    document.getElementById("hint").innerHTML = 
+    "This is a metal disk that connects the output from an engine to the input of a torque converter in a car equipped with an automatic transmission. It takes the place of the flywheel found in a conventional standard transmission setup."
 } else if (chosenWord === "flywheel") {
-    document.getElementById("hint").innerHTML = "flywheel hint";
+    document.getElementById("hint").innerHTML = 
+    "Found on standard transmission vehicles, this part is a mechanical device specifically designed to efficiently store rotational energy. They resist changes in rotational speed by their moment of inertia.";;
 } else if (chosenWord === "transmission") {
-    document.getElementById("hint").innerHTML = "transmission hint";
+    document.getElementById("hint").innerHTML = 
+    "The mechanism by which power is transmitted from an engine to the wheels of a motor vehicle.";
 } else if (chosenWord === "distributor") {
-    document.getElementById("hint").innerHTML = "distributor hint";
+    document.getElementById("hint").innerHTML = 
+    "Although most vehicles have switched to coil-on-plugs, the purpose of this device is to route secondary, or high voltage, current from the ignition coil to the spark plugs in the correct firing order, and for the correct amount of time.";
 } else if (chosenWord === "alternator") {
-    document.getElementById("hint").innerHTML = "alternator hint";
+    document.getElementById("hint").innerHTML = 
+    "This is an electrical generator that converts mechanical energy to electrical energy. It also recharges the battery and runs all electrical accessories on the vehicle.";
 } else if (chosenWord === "crankshaft") {
-    document.getElementById("hint").innerHTML = "crankshaft hint";
+    document.getElementById("hint").innerHTML = 
+    "This is a shaft which transmits the power developed by the engine to the various parts of the vehicle.";
 } else if (chosenWord === "differential") {
-    document.getElementById("hint").innerHTML = "differential hint";
+    document.getElementById("hint").innerHTML = 
+    "Equiped on all motor vehicles, this component is designed to compensate for the difference in distance the inner wheels and outer wheels travel as the car goes around a corner.";
 }
 
 //Generates underscores for the number of characters in the chosenWord array
@@ -88,11 +95,13 @@ document.onkeypress = function(event) {
         }
         
     }
-    
+
     // Displays the correct word once all lives are used up
     if (lives < 1){
         lives = 0;
         document.getElementById("showWord").innerHTML = "The correct word is \"" + chosenWord + "\".";
+        // window.location.reload();
     }
     document.getElementById("lives").innerHTML = lives;
+    
 }

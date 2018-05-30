@@ -58,7 +58,6 @@ var guessing = function(){
                 console.log("if now")
             }
             output += display[n];
-            
         }
 
         document.getElementById("lives").innerHTML = lives;

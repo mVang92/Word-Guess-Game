@@ -1,13 +1,13 @@
 // GLOBAL SCOPE VARIABLES
 // Make an array of words to guess
 var wordList = [
-    "flexplate", 
-    "flywheel", 
-    "transmission",
-    "distributor",
-    "alternator",
-    "crankshaft",
-    "differential"
+    "flexplate",//.split(""), 
+    "flywheel",//.split(""), 
+    "transmission",//.split(""),
+    "distributor",//.split(""),
+    "alternator",//.split(""),
+    "crankshaft",//.split(""),
+    "differential"//.split("")
 ]
 
 // Randomlly pick a word from wordList array
@@ -78,19 +78,18 @@ document.onkeypress = function(event) {
     // add it to the good guesses array
     } else {
         for (i = 0; i < chosenWord.length; i++) {
-            // Each time the guess letter is found, we
-            // add it as a good guess in the same spot
+            // Each time the guess letter is found... 
             if (chosenWord[i] === userLetter) {
+                // Add it as a good guess in the same spot
                 rightGuess[i] = userLetter;
                 document.getElementById("wordToGuess").innerHTML = rightGuess;
             }
+            
         }
+        
     }
-
-    if (chosenWord.indexOf(rightGuess) > 0){
-        console.log("win")
-    }
-
+    
+    // Displays the correct word once all lives are used up
     if (lives < 1){
         lives = 0;
         document.getElementById("showWord").innerHTML = "The correct word is \"" + chosenWord + "\".";

@@ -47,6 +47,10 @@ button {
     font-size: 40px;
 }
 
-#letterBank, #wordToGuessFormat {
+#wordToGuessFormat, #livesLeft, #lives, #showWord {
     text-align: center;
+}
+
+#showWord {
+    color: darkred;
 }

@@ -24,26 +24,34 @@ var output = "";
 var userLetter = "";
 // END GLOBAL SCOPE VARIABLES
 
+// Running function
 var running = function() {
     // Test running function
     // console.log("running function")
+
+    // Displays amount of lives left into HTML
     document.getElementById("lives").innerHTML = lives;
+    // Generates underscores for the number of characters in the chosenWord array
     for (var i = 0; i < chosenWord.length; i++){
         display[i] = "_ ";
         output += display[i];
     }
     document.getElementById("wordToGuess").innerHTML = output;
     output = "";
+    // Test to see chosen word within this function
     console.log(chosenWord)
 }
 
+// Guessing function
 var guessing = function(){
     // Test guessing function
     // console.log("in guessing function")
+
     output = "";
     // Listens to key presses
     document.onkeypress = function(event) {
         event = event || window.event;
+        // Converts key code into a character we can understand
         var charCode = event.keyCode || event.which;
         var userLetter = String.fromCharCode(charCode);
         // Test
@@ -74,8 +82,14 @@ var guessing = function(){
     }
 }
 
+// New button function
 document.getElementById("newBtn").addEventListener("click", function(){
+    // Test New Game button function
     // console.log("New Game")
+
+    // Reset lives when new button is clicked
+    lives = 10;
+    //Calls running and guessing functions
     running();
     guessing ();
 });

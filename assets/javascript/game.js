@@ -1,13 +1,13 @@
 // GLOBAL SCOPE VARIABLES
 // Make an array of words to guess
 var wordList = [
-    "flexplate",//.split(""), 
-    "flywheel",//.split(""), 
-    "transmission",//.split(""),
-    "distributor",//.split(""),
-    "alternator",//.split(""),
-    "crankshaft",//.split(""),
-    "differential"//.split("")
+    "flexplate", 
+    "flywheel", 
+    "transmission",
+    "distributor",
+    "alternator",
+    "crankshaft",
+    "differential"
 ]
 
 // Randomlly pick a word from wordList array
@@ -18,7 +18,8 @@ var display = [myLength];
 var win = myLength;
 // // Splits answer array into separate characters at each index
 // // Use toString method to get underscores to generate correctly
-var letters = chosenWord; //.toString().split('');
+var letters = chosenWord.split("");//chosenWord;
+console.log(letters)
 var lives = 10;
 var rightGuess = [];
 var wrongGuess = [];
@@ -26,6 +27,7 @@ var wrongGuess = [];
 var output = "";
 // // What ever letter the user guesses
 var userLetter = "";
+var time = 0;
 // END GLOBAL SCOPE VARIABLES
 
 // Displays amount of lives left into HTML
@@ -66,7 +68,7 @@ document.getElementById("wordToGuess").innerHTML = output;
 // Resets underscores
 output = "";
 // Stop cheating...
-// console.log(chosenWord);
+console.log(chosenWord);
 
 // Listens to key presses
 document.onkeypress = function(event) {
@@ -74,12 +76,12 @@ document.onkeypress = function(event) {
     // Converts key code into a character we can understand
     var charCode = event.keyCode || event.which;
     var userLetter = String.fromCharCode(charCode);
-    // Test
+    // Test character
     // console.log(userLetter);
 
     // Checks for the wrong guesses
     if (chosenWord.indexOf(userLetter) < 0) {
-        // Test
+        // Test wrong letter
         // console.log("wrong guess");
 
         // Decrement lives by 1
@@ -91,19 +93,26 @@ document.onkeypress = function(event) {
             if (chosenWord[i] === userLetter) {
                 // Add it as a good guess in the same spot
                 rightGuess[i] = userLetter;
+                console.log(rightGuess)
                 document.getElementById("wordToGuess").innerHTML = rightGuess;
             }
         }
     }
 
     // When player wins, notify the player
-    
+    if (rightGuess === letters) {
+        console.log("win")
+    }
 
     // When player loses, display the correct word once all lives are used up
     if (lives < 1){
         lives = 0;
         document.getElementById("showWord").innerHTML = "The correct word is \"" + chosenWord + "\".";
-        // window.location.reload();
+        time = setTimeout(reload, 10000);
     }
     document.getElementById("lives").innerHTML = lives;
+
+    function reload(){
+        window.location.reload();
+    }
 }

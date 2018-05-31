@@ -10,11 +10,12 @@ var wordList = [
     "differential"
 ]
 
+// Make an array of win phrases
 var winList = [
     "Good job, treat yourself to a cookie!",
     "Consider going into the automotive industry?",
-    "Well done, all our base are belong to you",
-    "Dynamo is an anagram of Monday"
+    "Well done, all our base are belong to you.",
+    "Dynamo is an anagram of Monday."
 ]
 
 // Randomlly pick a word from wordList array
@@ -31,15 +32,13 @@ var lives = 10;
 var rightGuess = [];
 // // How we display the underscore initially
 var output = "";
-// // What ever letter the user guesses
-var userLetter = "";
 var time = 0;
-
+//--------------------------
 // No cheating...
 // console.log(winString)
 // console.log(letters)
 // console.log(chosenWord);
-
+//--------------------------
 // END GLOBAL SCOPE VARIABLES
 
 // Displays amount of lives left into HTML
@@ -103,7 +102,8 @@ document.onkeypress = function(event) {
             if (chosenWord[i] === userLetter) {
                 // Add it as a good guess in the same spot
                 rightGuess[i] = userLetter;
-                console.log(rightGuess)
+                // Testing rightGuess array
+                // console.log(rightGuess)
                 document.getElementById("wordToGuess").innerHTML = rightGuess;
             }
         }

@@ -16,9 +16,8 @@ var chosenWord = wordList[randomWord];
 var myLength = chosenWord.length;
 var display = [myLength];
 var win = myLength;
-// // Splits answer array into separate characters at each index
-// // Use toString method to get underscores to generate correctly
-var letters = chosenWord.split("");//chosenWord;
+// Splits answer array into separate characters at each index
+var letters = chosenWord.split("");
 console.log(letters)
 var lives = 10;
 var rightGuess = [];
@@ -100,14 +99,29 @@ document.onkeypress = function(event) {
     }
 
     // When player wins, notify the player
-    if (rightGuess === letters) {
+    if (arraysEqual(rightGuess, letters)) {
         console.log("win")
     }
+    
+    function arraysEqual(a, b) {
+        if (a === b) return true;
+        if (a == null || b == null) return false;
+        if (a.length != b.length) return false;
+      
+        // If you don't care about the order of the elements inside
+        // the array, you should sort both arrays here.
+      
+        for (var i = 0; i < a.length; ++i) {
+          if (a[i] !== b[i]) return false;
+        }
+        return true;
+      }
 
     // When player loses, display the correct word once all lives are used up
     if (lives < 1){
         lives = 0;
         document.getElementById("showWord").innerHTML = "The correct word is \"" + chosenWord + "\".";
+        // Calls reload function to refresh the page after 10 seconds
         time = setTimeout(reload, 10000);
     }
     document.getElementById("lives").innerHTML = lives;

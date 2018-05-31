@@ -10,23 +10,36 @@ var wordList = [
     "differential"
 ]
 
+var winList = [
+    "Good job, treat yourself to a cookie!",
+    "Consider going into the automotive industry?",
+    "Well done, all our base are belong to you",
+    "Dynamo is an anagram of Monday"
+]
+
 // Randomlly pick a word from wordList array
 var randomWord = Math.floor(Math.random() * wordList.length);
+var randomWin = Math.floor(Math.random() * winList.length);
+var winString = winList[randomWin];
 var chosenWord = wordList[randomWord];
 var myLength = chosenWord.length;
 var display = [myLength];
 var win = myLength;
 // Splits answer array into separate characters at each index
 var letters = chosenWord.split("");
-console.log(letters)
 var lives = 10;
 var rightGuess = [];
-var wrongGuess = [];
 // // How we display the underscore initially
 var output = "";
 // // What ever letter the user guesses
 var userLetter = "";
 var time = 0;
+
+// No cheating...
+// console.log(winString)
+// console.log(letters)
+// console.log(chosenWord);
+
 // END GLOBAL SCOPE VARIABLES
 
 // Displays amount of lives left into HTML
@@ -66,8 +79,6 @@ for (var i = 0; i < chosenWord.length; i++){
 document.getElementById("wordToGuess").innerHTML = output;
 // Resets underscores
 output = "";
-// Stop cheating...
-console.log(chosenWord);
 
 // Listens to key presses
 document.onkeypress = function(event) {
@@ -98,11 +109,15 @@ document.onkeypress = function(event) {
         }
     }
 
-    // When player wins, notify the player
+    // Calls arraysEqual function, and notifies the player if they won
     if (arraysEqual(rightGuess, letters)) {
-        console.log("win")
+        document.getElementById("showWord").innerHTML = winString;
+        // Calls reload function to refresh the page after 10 seconds
+        time = setTimeout(reload, 10000);
     }
     
+    // arraysEqual takes in two parameters, 
+    // and checks the arrays for both rightGuess and letters.
     function arraysEqual(a, b) {
         if (a === b) return true;
         if (a == null || b == null) return false;
@@ -111,6 +126,7 @@ document.onkeypress = function(event) {
         // If you don't care about the order of the elements inside
         // the array, you should sort both arrays here.
       
+        // If return true, player wins.
         for (var i = 0; i < a.length; ++i) {
           if (a[i] !== b[i]) return false;
         }
